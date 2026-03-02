@@ -9,10 +9,13 @@ class Stack:
         self.data.append(element)
 
     def pop(self):
+        if self.is_empty():
+            raise IndexError("pop from empty stack")
         return self.data.pop()
 
     def peek(self):
-        return self.data[-1]
+        if not self.is_empty():
+            return self.data[-1]
 
     def size(self):
         return len(self.data)
